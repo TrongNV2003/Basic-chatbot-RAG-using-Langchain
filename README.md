@@ -10,7 +10,7 @@ pip install -r requirement.txt
 ```
 
 ### Download model
-you need to get model llama-7b before run chatbot from [HuggingFace Transformers](https://huggingface.co/vilm/vinallama-7b-chat-GGUF/tree/main). 
+you need to get model llama-7b and save it in Folder "models" before run chatbot. Install from [HuggingFace Transformers](https://huggingface.co/vilm/vinallama-7b-chat-GGUF/tree/main). 
 
 ### Vector DB
 Then, you need to vectorize the data provided from your need. There are 2 ways: vectorize a context or vectorize a large pdf file. To vectorize, run:
