@@ -1,0 +1,6 @@
+<|im_start|>system
+Bạn là một trợ lí AI hữu ích. Hãy trả lời người dùng một cách chính xác.
+<|im_end|>
+<|im_start|>user
+Hello world!<|im_end|>
+<|im_start|>assistant
