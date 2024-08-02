@@ -4,13 +4,16 @@ This is a basic chatbot to answer the question with provided knowledge in pdf fi
 
 ## Usage
 First, you need to install requirement pakage:
+
+```bash
 pip install -r requirement.txt
+```
 
 ### Download model
-you need to get model before run chatbot
+you need to get model llama-7b before run chatbot from [HuggingFace Transformers](https://huggingface.co/vilm/vinallama-7b-chat-GGUF/tree/main). 
 
 ### Vector DB
-Then, you need to vectorize the data provided from your need. There are 2 ways: vectorize a small context or vectorize a large pdf file. To vectorize, run:
+Then, you need to vectorize the data provided from your need. There are 2 ways: vectorize a context or vectorize a large pdf file. To vectorize, run:
 
 ```bash
 python create_db.py
