@@ -25,3 +25,8 @@ I using vinallama-7b quantized model to run local on my computer. Model will ret
 ```bash
 !python runbot.py
 ```
+
+### Future plans
+- Using advance model
+- Run on GPU with quantized model
+- ....
