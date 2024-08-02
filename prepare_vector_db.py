@@ -6,7 +6,7 @@ from langchain_community.embeddings import GPT4AllEmbeddings
 # Create vector db from context
 class ContextVectorDB:
     def __init__(self) -> None:
-        self.vector_db_path = "vectorStores/db_faiss"
+        self.vector_db_path = "VectorStores"
         self.model_file = "models/all-MiniLM-L6-v2-f16.gguf"
     
     def create_db_from_text(self, raw_text: str):
@@ -36,7 +36,7 @@ class ContextVectorDB:
 class FileVectorDB:
     def __init__(self) -> None:
         self.pdf_data_path = "data"
-        self.vector_db_path = "vectorStores/db_faiss"
+        self.vector_db_path = "VectorStores"
         self.model_file = "models/all-MiniLM-L6-v2-f16.gguf"
         
     def create_db_from_files(self, pdf_data_path: str):

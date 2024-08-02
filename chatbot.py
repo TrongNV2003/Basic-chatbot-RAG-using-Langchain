@@ -8,7 +8,7 @@ import streamlit
 class Chatbot:
     def __init__(self):
         self.model_file = "models/vinallama-7b-chat_q5_0.gguf"
-        self.vector_db_path = "vectorstores/db_faiss"
+        self.vector_db_path = "VectorStores"
         
     def load_llm(self, model_file):
         llm = CTransformers(
