@@ -20,7 +20,7 @@ python create_db.py
 ```
 
 ### Run chatbot
-I using vinallama-7b quantized model to run local on my computer. Model will retrieve to the vector DB and answer the question regarded to provided knowledge. To ask chat bot, please provide your question in runbot.py and run:
+I using vinallama-7b quantized model to run local on my computer. Model will retrieve to the vector DB and answer the question regarded to provided knowledge. To ask chat bot, please provide your question in "runbot.py" and run:
 
 ```bash
 !python runbot.py
