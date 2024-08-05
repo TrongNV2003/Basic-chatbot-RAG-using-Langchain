@@ -1,4 +1,4 @@
-from prepare_vector_db import ContextVectorDB, FileVectorDB
+from preparing.prepare_vector_db import ContextVectorDB, FileVectorDB
 
 context_db = ContextVectorDB()
 file_db = FileVectorDB()
@@ -9,5 +9,5 @@ file_db = FileVectorDB()
 
 
 # convert all file pdf to vectorDB
-pdf_path = "1.pdf"
-file_db.create_db_from_files(pdf_path)
+pdf_file = "1.pdf"
+file_db.create_db_from_files(pdf_file)
