@@ -1,10 +1,10 @@
-from chatbot import Chatbot
+from preparing.chatbot_gpu import Chatbot
 
 bot = Chatbot()
 
 get_command = bot.runbot(
-    question="Tác giá của truyện này là ai?",
+    question="Đoạn văn đã cho được trích trong tác phẩm nào?",
     
-    template = """<|im_start|>system\nSử dụng thông tin sau đây để trả lời câu hỏi. Nếu bạn không biết câu trả lời, hãy nói không biết, đừng cố tạo ra những câu trả lời\n{context}\n<|im_start|>assistant"""
+    prompt = """<|im_start|>system\nSử dụng thông tin sau đây để trả lời câu hỏi. Nếu bạn không biết câu trả lời, hãy nói không biết, đừng cố tạo ra những câu trả lời sai\n{context}<|im_end|>\n<|im_start|>assistant"""
 )
 print(get_command)
