@@ -1,4 +1,4 @@
-ctransformers
+ctransformers==0.1.0
 langchain
 langchain-community
 pypdf

@@ -1,10 +1,10 @@
-from langchain_community.llms import CTransformers
+from langchain_community.llms import ctransformers
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_community.embeddings import GPT4AllEmbeddings
 from langchain_community.vectorstores import FAISS
 import streamlit
-
+import torch
 
 class Chatbot:
     def __init__(self):
@@ -12,7 +12,7 @@ class Chatbot:
         self.vector_db_path = "VectorStores"
         
     def load_llm(self, model_file):
-        llm = CTransformers(
+        llm = ctransformers(
             model = model_file,
             model_type = "llama",
             max_new_tokens = 1024,
