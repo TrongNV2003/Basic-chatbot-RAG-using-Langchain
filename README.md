@@ -26,6 +26,16 @@ I using vinallama-7b quantized model to run local on my computer. Model will ret
 !python runbot.py
 ```
 
+If you want to run on CPU, change in "runbot.py":
+```python
+from preparing.chatbot_cpu import Chatbot
+```
+
+Else you want to run on GPU:
+```python
+from preparing.chatbot_gpu import Chatbot
+```
+
 ### Future plans
 - Using advance model
 - Run on GPU with quantized model
