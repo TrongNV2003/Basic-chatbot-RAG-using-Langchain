@@ -70,7 +70,7 @@ if __name__ == "__main__":
     chatbot = Chatbot()
     print("Chatbot is ready. Type 'exit' to quit.")
     while True:
-        question = input("You: ")
+        question = input("User: ")
         if question.lower() == "exit":
             break
         response = chatbot.runbot(question)
