@@ -6,7 +6,7 @@ This is a basic chatbot to answer the question with provided knowledge in pdf fi
 First, you need to install requirement pakage:
 
 ```bash
-pip install -r requirement.txt
+!pip install -r requirement.txt
 ```
 
 ### Download model
@@ -26,7 +26,7 @@ I using vinallama-7b quantized model to run local on my computer. Model will ret
 !python chatbot_cpu.py
 ```
 
-If you want to run on CPU, run in "runbot.py":
+If you want to run on GPU, run in "runbot.py" (Recommend execute on google colab):
 ```bash
 !python chatbot_gpu.py
 ```
