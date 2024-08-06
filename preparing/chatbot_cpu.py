@@ -1,9 +1,8 @@
-from langchain_community.llms import ctransformers
+from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_community.embeddings import GPT4AllEmbeddings
 from langchain_community.vectorstores import FAISS
-import streamlit
 import torch
 
 class Chatbot:
@@ -12,7 +11,7 @@ class Chatbot:
         self.vector_db_path = "VectorStores"
         
     def load_llm(self, model_file):
-        llm = ctransformers(
+        llm = CTransformers(
             model = model_file,
             model_type = "llama",
             max_new_tokens = 1024,
@@ -49,9 +48,16 @@ class Chatbot:
         formatted_output = f"User: {user_query}\nbotgpt: {bot_response}"
         return formatted_output
     
-    def runbot(self, question: str, prompt: str):
+    def runbot(self, question: str):
         db = self.read_vector_db()
         llm = self.load_llm(self.model_file)
+        prompt = """<|im_start|>system
+        Dựa vào ngữ cảnh sau để trả lời câu hỏi\n
+        <|im_end|>
+        <|im_start|>user
+        {question}<|im_end|>
+        <|im_start|>assistant\n"""
+        
         prompting = self.create_prompt(prompt)
         llm_chain = self.create_qa_chain(prompting, llm, db)
         
@@ -59,3 +65,13 @@ class Chatbot:
         formatted_output = self.format_response(response)
         
         return formatted_output
+
+if __name__ == "__main__":
+    chatbot = Chatbot()
+    print("Chatbot is ready. Type 'exit' to quit.")
+    while True:
+        question = input("You: ")
+        if question.lower() == "exit":
+            break
+        response = chatbot.runbot(question)
+        print(response)
