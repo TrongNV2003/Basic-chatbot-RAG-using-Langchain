@@ -1,3 +1,1 @@
-"""<|im_start|>system
-Bạn là một trợ lí AI hữu ích. Hãy trả lời người dùng một cách chính xác.\n{context}<|im_end|>
-<|im_start|>assistant"""
+"""<|im_start|>user\nSử dụng thông tin sau đây để trả lời câu hỏi. Nếu bạn không biết câu trả lời, hãy nói không biết, đừng cố tạo ra những câu trả lời sai\n{context}<|im_end|>\n<|im_start|>assistant\n"""
