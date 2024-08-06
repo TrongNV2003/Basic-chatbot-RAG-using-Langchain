@@ -16,7 +16,7 @@ class Chatbot:
             model = model_file,
             model_type = "llama",
             max_new_tokens = 1024,
-            temperature = 0.01
+            temperature = 0.1
         )
         return llm
 

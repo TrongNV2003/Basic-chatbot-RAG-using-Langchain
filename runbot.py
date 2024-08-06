@@ -1,4 +1,4 @@
-from preparing.chatbot_gpu import Chatbot
+from preparing.chatbot_cpu import Chatbot
 
 bot = Chatbot()
 
