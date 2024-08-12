@@ -1,8 +1,8 @@
+# Recommended to execute on google colab
+
 import torch
 from transformers import AutoTokenizer
 from awq import AutoAWQForCausalLM
-
-# Recommended to execute on google colab
 
 class Chatbot:
     def __init__(self):
@@ -11,11 +11,10 @@ class Chatbot:
         self.tokenizer = AutoTokenizer.from_pretrained(MODEL_QUANTIZED, use_fast=True)
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.model.to(self.device)
-        self.model.eval()
-
+    
     def runbot(self, question: str):
         formatted_prompt = f"<|im_start|>user\n{question}<|im_end|>\n<|im_start|>assistant"
-
+        
         tokens = self.tokenizer(
             formatted_prompt,
             return_tensors='pt'
