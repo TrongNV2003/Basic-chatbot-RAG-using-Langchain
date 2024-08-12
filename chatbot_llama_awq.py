@@ -42,15 +42,20 @@ raw_prompt = PromptTemplate.from_template(
            Answer:
     [/INST]
 """
+    """
+    <|im_start|>user
+    You are a technical assistant good at searching documents. If you do not have an answer from the provided information say so.
+    Context:{context}<|im_end|>\n<|im_start|>assistant\n
+    """
 )
 
 
-def handle_ai_query(query):
+def ai_query(query):
     print(f"Query: {query}")
 
     input_ids = tokenizer.encode(query, return_tensors="pt").to(device)
     with torch.no_grad():
-        output = model.generate(input_ids, max_length=512)
+        output = model.generate(input_ids, max_length=1024)
     response = tokenizer.decode(output[0], skip_special_tokens=True)
     print(response)
 
@@ -58,7 +63,7 @@ def handle_ai_query(query):
     return response_answer
 
 
-def handle_pdf_query(query):
+def rag_pdf_query(query):
     print(f"Query: {query}")
 
     print("Loading vector store")
@@ -109,7 +114,7 @@ def handle_pdf_query(query):
     return response_answer
 
 
-def handle_pdf_upload(file_path):
+def pdf_upload(file_path):
     print(f"Uploading file: {file_path}")
 
     loader = PDFPlumberLoader(file_path)
@@ -146,18 +151,18 @@ def main():
 
         if choice == "1":
             query = input("Enter your query: ")
-            response = handle_ai_query(query)
+            response = ai_query(query)
             print(f"Response: {response['answer']}")
         elif choice == "2":
             query = input("Enter your query: ")
-            response = handle_pdf_query(query)
+            response = rag_pdf_query(query)
             print(f"Response: {response['answer']}")
             print("Sources:")
             for source in response["sources"]:
                 print(f"- {source['source']}: {source['page_content']}")
         elif choice == "3":
             file_path = input("Enter the path to the PDF file: ")
-            response = handle_pdf_upload(file_path)
+            response = pdf_upload(file_path)
             print(f"Response: {response}")
         elif choice == "4":
             print("Exiting...")
