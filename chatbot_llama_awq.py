@@ -51,7 +51,7 @@ raw_prompt = PromptTemplate.from_template(
 
 
 def ai_query(query):
-    print(f"Query: {query}")
+    print(f"Question: {query}")
 
     input_ids = tokenizer.encode(query, return_tensors="pt").to(device)
     with torch.no_grad():
@@ -64,7 +64,7 @@ def ai_query(query):
 
 # đang bị lỗi
 def rag_pdf_query(query):
-    print(f"Query: {query}")
+    print(f"Question: {query}")
 
     print("Loading vector store")
     vector_store = Chroma(persist_directory=folder_path, embedding_function=embedding)
